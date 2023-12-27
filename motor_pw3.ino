@@ -1,5 +1,5 @@
 #include <LiquidCrystal.h> 
-//#include<SoftwareSerial.h>
+#include<SoftwareSerial.h>
 #include <Wire.h>
 
 // Variables for MPU 6050
@@ -60,8 +60,8 @@ void setup(){
 
   Serial.begin(57600);
   
-  //pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  //pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
 
   pinMode(EA,INPUT); // Left Encoder Input
   pinMode(EB,INPUT); // Right Encoder Input
@@ -363,58 +363,8 @@ void climbing(){  //forword
 
   delay(900);
 
-  /*
-  for (t=0;t=300;t++){
-    line_following();
-    delay(1);
-  }
-
-  Stop();
-  delay(1000);
-  */
-
   task2();
 }
-
-/*
-void forward(){  //forword
-  analogWrite(enAL, 70);
-  analogWrite(enBR, 70);
-
-  digitalWrite(in1, LOW); //Right Motor forword Pin 
-  digitalWrite(in2, HIGH);  //Right Motor backword Pin 
-  digitalWrite(in3, LOW);  //Left Motor backword Pin 
-  digitalWrite(in4, HIGH); //Left Motor forword Pin 
-}
-
-void turnRight(){ //turnLeft
-
-  analogWrite(enAL, 255);
-  analogWrite(enBR, 255);
-
-  digitalWrite(in1, HIGH);  //Right Motor forword Pin 
-  digitalWrite(in2, LOW); //Right Motor backword Pin  
-  digitalWrite(in3, LOW);  //Left Motor backword Pin 
-  digitalWrite(in4, HIGH); //Left Motor forword Pin 
-
-  delay(50);
-  Stop();
-}
-
-void turnLeft(){
-  analogWrite(enAL, 255);
-  analogWrite(enBR, 255);
-
-  digitalWrite(in1, LOW); //Right Motor forword Pin 
-  digitalWrite(in2, HIGH);  //Right Motor backword Pin 
-  digitalWrite(in3, HIGH); //Left Motor backword Pin 
-  digitalWrite(in4, LOW);  //Left Motor forword Pin 
-
-  delay(50);
-  Stop();
-
-}
-*/
 
 void Stop(){ //stop
   analogWrite(enAL, 0);
